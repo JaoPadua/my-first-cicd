@@ -1,0 +1,1 @@
+![CI](https://github.com/JaoPadua/my-first-cicd/actions/workflows/ci.yml/badge.svg)
