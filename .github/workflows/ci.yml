@@ -1,32 +1,32 @@
-name: My First Pipeline
+# name: My First Pipeline
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
 
-jobs:
-  test-my-code:
-    runs-on: ubuntu-latest
+# jobs:
+#   test-my-code:
+#     runs-on: ubuntu-latest
     
-    steps:
-      - name: Get the code
-        uses: actions/checkout@v5
+#     steps:
+#       - name: Get the code
+#         uses: actions/checkout@v5
       
-      - name: Install Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.11'
+#       - name: Install Python
+#         uses: actions/setup-python@v6
+#         with:
+#           python-version: '3.11'
       
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+#       - name: Install dependencies
+#         run: pip install -r requirements.txt
 
-      - name: Run linter
-        run: ruff check .
+#       - name: Run linter
+#         run: ruff check .
 
-      - name: Check formatting
-        run: ruff format --check .
+#       - name: Check formatting
+#         run: ruff format --check .
 
-      - name: Run tests
-        run: pytest
+#       - name: Run tests
+#         run: pytest
