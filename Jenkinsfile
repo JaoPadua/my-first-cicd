@@ -19,18 +19,33 @@ pipeline {
             }
         }
 
-        stage('Lint & Format Check') {
+      stage('Run linter') {
             steps {
-                sh 'ruff check .'
-                sh 'ruff format --check .'
+                sh '''
+                    export PATH=$PATH:/var/jenkins_home/.local/bin
+                    ruff check .
+                '''
             }
         }
 
-        stage('Test') {
+        stage('Check formatting') {
             steps {
-                sh 'pytest'
+                sh '''
+                    export PATH=$PATH:/var/jenkins_home/.local/bin
+                    ruff format --check .
+                '''
             }
         }
+
+    stage('Test') {
+        steps {
+            sh '''
+                export PATH=$PATH:/var/jenkins_home/.local/bin
+                pytest
+            '''
+        }
+    }
+
 
         stage('Build Image') {
             steps {
